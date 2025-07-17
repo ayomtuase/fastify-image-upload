@@ -34,24 +34,24 @@ export default fastifyPlugin(
 	) => {
 		const schema = {
 			type: 'object',
-			required: [
-				'SECRET',
-				'PRIVATE',
-				'PUBLIC',
-				'DATABASE_URL',
-				'DATABASE_URL_NON_POOLING',
-				'REDIS_URL',
-			],
+			// required: [
+			// 	'SECRET',
+			// 	'PRIVATE',
+			// 	'PUBLIC',
+			// 	'DATABASE_URL',
+			// 	'DATABASE_URL_NON_POOLING',
+			// 	'REDIS_URL',
+			// ],
 			properties: {
-				SECRET: {
-					type: 'string',
-				},
-				PRIVATE: {
-					type: 'string',
-				},
-				PUBLIC: {
-					type: 'string',
-				},
+				// SECRET: {
+				// 	type: 'string',
+				// },
+				// PRIVATE: {
+				// 	type: 'string',
+				// },
+				// PUBLIC: {
+				// 	type: 'string',
+				// },
 				HOST: {
 					type: 'string',
 					default: '0.0.0.0',
@@ -60,24 +60,24 @@ export default fastifyPlugin(
 					type: 'number',
 					default: 3000,
 				},
-				DATABASE_URL: {
-					type: 'string',
-				},
-				DATABASE_URL_NON_POOLING: {
-					type: 'string',
-				},
-				REDIS_URL: {
-					type: 'string',
-				},
-				NODE_ENV: {
-					type: 'string',
-					default: 'prod',
-				},
-				ALLOWED_ORIGINS: {
-					type: 'string',
-					separator: ',',
-					default: 'http://localhost:4321',
-				},
+				// DATABASE_URL: {
+				// 	type: 'string',
+				// },
+				// DATABASE_URL_NON_POOLING: {
+				// 	type: 'string',
+				// },
+				// REDIS_URL: {
+				// 	type: 'string',
+				// },
+				// NODE_ENV: {
+				// 	type: 'string',
+				// 	default: 'prod',
+				// },
+				// ALLOWED_ORIGINS: {
+				// 	type: 'string',
+				// 	separator: ',',
+				// 	default: 'http://localhost:4321',
+				// },
 			},
 		};
 

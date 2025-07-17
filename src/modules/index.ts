@@ -1,19 +1,20 @@
-import { FastifyInstance, FastifyPluginOptions } from 'fastify';
+import { FastifyInstance } from 'fastify';
 
 import fastifyPlugin from 'fastify-plugin';
-import auth from './auth';
+// import auth from './auth';
+import uploadImage from './uploadImage';
 
-const getOptionsWithPrefix = (options: FastifyPluginOptions, prefix: string) => {
-	return {
-		...options,
-		prefix: options.prefix + prefix,
-	};
-};
+// const getOptionsWithPrefix = (options: FastifyPluginOptions, prefix: string) => {
+// 	return {
+// 		...options,
+// 		prefix: options.prefix + prefix,
+// 	};
+// };
 
-export default fastifyPlugin(async (fastify: FastifyInstance, options: FastifyPluginOptions) => {
+export default fastifyPlugin(async (fastify: FastifyInstance) => {
 	fastify.get('/api/health', async () => {
 		return { status: 'OK' };
 	});
 
-	await Promise.all([fastify.register(auth, getOptionsWithPrefix(options, '/auth'))]);
+	await fastify.register(uploadImage, { prefix: '/api' });
 });
