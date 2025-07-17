@@ -15,6 +15,15 @@ export default class UploadImageController {
 	) {
 		try {
 			const image = await request.file();
+
+			if (!image) {
+				return reply.code(400).send({ message: 'No file uploaded.' });
+			}
+
+			if (!image.mimetype.startsWith('image/')) {
+				return reply.code(400).send({ message: 'Uploaded file is not an image.' });
+			}
+
 			const status = await this.uploadImageService.uploadImage(image);
 			if (!status) {
 				return reply.code(400).send({ message: 'Image upload failed' });
